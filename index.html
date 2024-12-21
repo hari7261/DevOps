@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Engineering Syllabus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .week-card {
+            margin-bottom: 20px;
+        }
+        .progress {
+            height: 25px;
+        }
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">DevOps Engineering - Planning to Production</h1>
+        <div class="progress mb-4">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>
+        <div id="syllabus"></div>
+        <h2 class="mt-5">Interview Preparation Topics</h2>
+        <ul id="interview-topics" class="list-group"></ul>
+        <h2 class="mt-5">Projects</h2>
+        <ul id="projects" class="list-group"></ul>
+    </div>
+
+    <script>
+        const syllabus = [
+            {
+                week: 1,
+                title: "Automation Using Shell Scripting & RedHat Linux Administration",
+                topics: [
+                    "Red Hat Linux Administration",
+                    "File System Management",
+                    "User and Group Administration",
+                    "Package Management with Yum",
+                    "System Services and Systems",
+                    "Networking Configuration",
+                    "Security and Permissions",
+                    "System Performance Monitoring",
+                    "Storage Management",
+                    "Backup and Restore",
+                    "Basics of Shell Scripting",
+                    "Real-Time Scenarios in Shell Scripting"
+                ],
+                advancedTopics: [
+                    "SELinux Configuration and Management",
+                    "Advanced Shell Scripting Techniques (Arrays, Functions, Error Handling)",
+                    "Automating System Administration Tasks with Shell Scripts"
+                ]
+            },
+            {
+                week: 2,
+                title: "Cloud Services & AWS Fundamentals",
+                topics: [
+                    "Overview of AWS Global Infrastructure",
+                    "Detailed Overview of Elastic Compute Cloud (EC2)",
+                    "Setting Up Your First EC2 Instance",
+                    "In-Depth Guide to EC2 Instance Configuration",
+                    "Exploring EC2 Options in Detail",
+                    "Connecting to Cloud Instances",
+                    "Security Group Handling and Management",
+                    "Introduction to Amazon S3",
+                    "Auto Scaling and Load Balancing",
+                    "Understanding Cloud Formation and CloudWatch",
+                    "Exploring Simple Notification Service (SNS) and Simple Queue Service (SQS)",
+                    "Overview of Relational Database Service (RDS) and Identity and Access Management (IAM)",
+                    "Project-Based Learning: ECS and ECR",
+                    "Serverless Architecture",
+                    "Utilizing CloudWatch for Monitoring and Setting Billing Alarms"
+                ],
+                advancedTopics: [
+                    "AWS Lambda and API Gateway for Serverless Applications",
+                    "VPC Peering and Transit Gateway",
+                    "AWS Organizations and Multi-Account Strategies"
+                ]
+            },
+            {
+                week: 3,
+                title: "Source Code Management & Networking Concepts",
+                topics: [
+                    "Difference between CVCS and DVCS",
+                    "Importance of Git",
+                    "Installation of Git",
+                    "Git three-stage Architecture",
+                    "Detailed explanation of Repository, Commit, Tags, Snapshots, Push-Pull Mechanism, and Branching Strategy",
+                    "Working with Git stash and Git pop",
+                    "Resolve Merge conflicts in Git",
+                    "Git Revert and Reset (Reset vs Revert)",
+                    "Git rebase",
+                    "Working with git Squash",
+                    "Git cherry pick",
+                    "What is Git fork?",
+                    "Git Integration on VScode, Git Authentication with Github via SSH and HTTPS Protocol",
+                    "Github Introduction, Creating Repositories, PR's",
+                    "Networking Concepts in Detail",
+                    "How Systems Communicate",
+                    "LAN/WAN",
+                    "Switch, Router IP",
+                    "IP address and its types",
+                    "OSI Model",
+                    "Subnetting",
+                    "DNS Basics",
+                    "Switching + Routing"
+                ],
+                advancedTopics: [
+                    "Git Workflows (Gitflow, GitHub Flow, GitLab Flow)",
+                    "Advanced Git Hooks and Custom Scripts",
+                    "Software-Defined Networking (SDN)"
+                ]
+            },
+            {
+                week: 4,
+                title: "Package Management (Docker) Using Real-Time Scenarios & Understanding SonarQube",
+                topics: [
+                    "What is Virtualization before deep dive into Containerization",
+                    "O.S level virtualization",
+                    "Docker vs Virtual Machine",
+                    "What is Docker and its History",
+                    "Docker Architecture",
+                    "Advantages and limitations of Docker",
+                    "Components of Docker (Docker Daemon, Docker Client, Docker Host)",
+                    "Docker Image",
+                    "Docker lifecycle",
+                    "Docker Image TAR and Unarchive, Docker container states, Docker Networking",
+                    "(Create and Manage), Dockerfile and CD flow",
+                    "CD Tools with Docker (Integrating CD tools like Jenkins and Github action using projects)",
+                    "Docker Networking",
+                    "Docker Security Introduction",
+                    "Docker volume",
+                    "Understanding SonarQube's Role in Code Quality Assessment",
+                    "Implementing Quality Gates to Ensure Code Quality Standards",
+                    "Configuring and Managing SonarQube Profiles for Code Analysis"
+                ],
+                advancedTopics: [
+                    "Docker Swarm for Container Orchestration",
+                    "Multi-stage Builds in Docker",
+                    "Custom SonarQube Rule Creation"
+                ]
+            },
+            {
+                week: 5,
+                title: "Minor Project Week",
+                topics: [
+                    "Design and implement a minor DevOps project involving shell scripting and RedHat Linux Administration",
+                    "Develop a script to automate user and group administration on a RedHat Linux system",
+                    "Create a shell script to add, delete, and list users and groups",
+                    "Implement file system management tasks using shell scripting",
+                    "Write a script to monitor system performance and generate periodic reports",
+                    "Initialize a Git repository for the project, commit the shell scripts, and push them to a GitHub repository",
+                    "Create a Dockerfile to containerize the shell scripting application",
+                    "Build and run the Docker container",
+                    "Document the project setup, usage instructions, and any issues encountered during the implementation"
+                ],
+                advancedTopics: [
+                    "Implement CI/CD pipeline for the project using Jenkins or GitHub Actions",
+                    "Integrate SonarQube for code quality analysis in the pipeline"
+                ]
+            },
+            {
+                week: 6,
+                title: "Continuous Integration and Continuous Delivery",
+                topics: [
+                    "Understanding aggregate functions (SUM, AVG, COUNT)",
+                    "Continuous Integration/Continuous Deployment (CI/CD) Workflow Overview",
+                    "Understanding JenkinsFile: Exploring Jenkins Jobs, Jenkins Pipeline, and Jenkins File",
+                    "Build Triggers in Jenkins: SCM Polling, GITScm Polling, Build Periodically",
+                    "Groovy File Creation: Conceptualizing and Crafting Groovy Scripts for Jenkins",
+                    "Integrating GitHub with Jenkins: Establishing Webhooks for Seamless Collaboration",
+                    "Grasping Merge Request Concepts in the CI/CD Process",
+                    "Jenkins Master-Slave Configuration: Optimizing Resource Utilization in CI/CD",
+                    "Triggering Pipelines Directly from JenkinsFile: Streamlining Automation",
+                    "GitLab Branching Strategy: Best Practices for Code Collaboration and Version Control",
+                    "Hands-On Experience: Building a Jenkins CI Pipeline with Groovy, Incorporating Various Stages",
+                    "Configuring Docker Engineer as the Jenkins Slave - Jenkins Dynamic Slave Configuration",
+                    "Jenkins Plugins - Docker, Git, Maven, and other commonly used plugins",
+                    "Integrating Kubernetes with Jenkins"
+                ],
+                advancedTopics: [
+                    "Blue-Green and Canary Deployment Strategies",
+                    "Jenkins Shared Libraries for Reusable Pipeline Code",
+                    "Implementing Security Scanning in CI/CD Pipeline"
+                ]
+            },
+            {
+                week: 7,
+                title: "Deep Dive Kubernetes",
+                topics: [
+                    "Defining Kubernetes and its Role in Container Orchestration",
+                    "Exploring the Features and History of Kubernetes",
+                    "Kubernetes Architecture",
+                    "In-Depth Analysis of Kubernetes Architecture",
+                    "Understanding Node Components, Manifest File Components, and Service Components",
+                    "Overview of Node and Pod Fundamentals",
+                    "Role of Master Node and Components of the Control Plane",
+                    "Installing and Configuring kubectl and minikube",
+                    "Kubernetes Commands: Navigating and Interacting with Kubernetes",
+                    "Creation and Deletion of Pods",
+                    "Managing Kubernetes YAML Configurations",
+                    "Higher-Level Kubernetes Objects and Object Management",
+                    "Labels and Selectors in Kubernetes",
+                    "Kubernetes Networking, Services, and NodePort",
+                    "Understanding Namespaces in Kubernetes",
+                    "Multi Container Pod Setup",
+                    "Pods Design pattern - Sidecar, Ambassador"
+                ],
+                advancedTopics: [
+                    "Custom Resource Definitions (CRDs) and Operators",
+                    "Advanced Scheduling Techniques in Kubernetes",
+                    "Kubernetes Federation for Multi-Cluster Management"
+                ]
+            },
+            {
+                week: 8,
+                title: "Working with Applications in Kubernetes",
+                topics: [
+                    "Installing Kubernetes on AWS",
+                    "Deploying Microservices Applications to Kubernetes Cluster",
+                    "ConfigMap and Secret Usage in Kubernetes",
+                    "Exploring Volumes in Kubernetes",
+                    "Persistent Volume and LivenessProbe in Kubernetes",
+                    "Replication, Auto-Healing, and Deployment in Kubernetes",
+                    "Helm And Istio Service mesh",
+                    "Role-Based Access Control (RBAC) and Service Accounts",
+                    "Helm and Istio Integration in Kubernetes",
+                    "Kubernetes Interview Questions",
+                    "Differences Between Monolithic and Microservices Architecture",
+                    "HPA, Ingress, Taint, and toleration"
+                ],
+                advancedTopics: [
+                    "Implementing Service Mesh with Istio",
+                    "Advanced Helm Chart Development",
+                    "Kubernetes Network Policies for Fine-Grained Access Control"
+                ]
+            },
+            {
+                week: 9,
+                title: "Ansible",
+                topics: [
+                    "Defining Ansible and Understanding the Need for Configuration Management",
+                    "In-Depth Exploration of Ansible Architecture",
+                    "Analyzing the Architecture of Ansible for Efficient Configuration Management",
+                    "Detailed Steps for Installing and Setting Up Ansible",
+                    "Exploring Essential Components such as Ansible Roles, Ansible Collections, Ad-hoc Commands, and Playbooks Setup",
+                    "Creating Playbooks for Automation",
+                    "Building Playbooks to Copy Files with Special Variables",
+                    "Utilizing Ansible Handlers and Notifiers for Effective Automation",
+                    "Implementing Playbooks for Downloading Artifacts and Unzipping Files",
+                    "Advanced Automation Scenarios with Ansible",
+                    "Leveraging Ansible Tags for Targeted Deployment to Servers",
+                    "Automating the Installation of Apache and Configuring the Corresponding Configuration Files",
+                    "Configure Multi-node k8s cluster with Ansible",
+                    "Manage Variable and Ansible Facts"
+                ],
+                advancedTopics: [
+                    "Ansible Tower/AWX for Enterprise Automation",
+                    "Dynamic Inventory Management in Ansible",
+                    "Writing Custom Ansible Modules"
+                ]
+            },
+            {
+                week: 10,
+                title: "Infrastructure As Code using Terraform",
+                topics: [
+                    "Introduction to Infrastructure as Code (IaC)",
+                    "Getting Started with Terraform",
+                    "Terraform Basics: Variables, Resources, Attributes, and Dependencies",
+                    "Terraform State Management",
+                    "Advanced Terraform Concepts: for-each and module",
+                    "Terraform Project Development",
+                    "AWS Infrastructure Security with Terraform",
+                    "CIDR Setup Example with /16",
+                    "Subnet Configuration with Terraform",
+                    "Terraform State Locking",
+                    "Terraform Modules"
+                ],
+                advancedTopics: [
+                    "Writing Custom Terraform Providers",
+                    "Terraform Workspaces for Environment Management",
+                    "Integrating Terraform with Vault for Secrets Management"
+                ]
+            },
+            {
+                week: 11,
+                title: "Monitoring And Logging",
+                topics: [
+                    "Installation Of Grafana",
+                    "Database Installation MySQL",
+                    "Grafana Setup with My SQL",
+                    "Installation of Prometheus",
+                    "Setting Up Prometheus on Kubernetes cluster",
+                    "Monitoring K8 Cluster with Prometheus",
+                    "Alerts in Grafana",
+                    "Grafana Plugins"
+                ],
+                advancedTopics: [
+                    "Implementing Distributed Tracing with Jaeger",
+                    "Log Aggregation with ELK Stack (Elasticsearch, Logstash, Kibana)",
+                    "Custom Prometheus Exporters Development"
+                ]
+            },
+            {
+                week: 12,
+                title: "Major Projects - Mentor and Self Guided",
+                topics: [
+                    "Mentor Guided Project: Design and implement a robust DevOps project involving the deployment of Amazon Elastic Container Service (ECS) on EC2 instances, incorporating CloudWatch for monitoring, and integrating load balancers for optimal application scaling",
+                    "Mentor Guided Project: Amazon EKS, incorporating the Nginx Ingress Controller for efficient traffic routing, and integrating Cert-Manager for SSL certificate management",
+                    "Self Guided Project: GitHub action to add a node as a self-hosted runner and run a specific docker image and expose it to a particular port using Nginx",
+                    "Self Guided Project: System Monitoring Script via Shell Scripting - Write a script to monitor system resources (CPU, memory, disk usage)"
+                ],
+                advancedTopics: [
+                    "Implementing a GitOps workflow with ArgoCD",
+                    "Building a Multi-Cloud Infrastructure using Terraform",
+                    "Developing a Custom Kubernetes Operator"
+                ]
+            }
+        ];
+
+        const interviewTopics = [
+            "Linux and Shell Scripting",
+            "Version Control with Git",
+            "Continuous Integration and Continuous Deployment (CI/CD)",
+            "Containerization and Orchestration",
+            "Infrastructure as Code (IaC)",
+            "Cloud Services (AWS)",
+            "Monitoring and Logging",
+            "Monitoring and Logging",
+            "Networking",
+            "Security Best Practices",
+            "Scripting and Programming",
+            "Microservices Architecture",
+            "DevOps Culture and Practices",
+            "Performance Tuning and Optimization",
+            "Disaster Recovery and High Availability",
+            "Configuration Management",
+            "Soft Skills and Communication"
+        ];
+
+        const projects = [
+            "Automated CI/CD Pipeline for a Web Application",
+            "Multi-tier Application Deployment on Kubernetes",
+            "Infrastructure as Code for Cloud Resources",
+            "Centralized Logging and Monitoring Solution",
+            "Serverless Application with AWS Lambda and API Gateway",
+            "Microservices Architecture Implementation",
+            "Container Orchestration with Docker Swarm",
+            "Ansible Playbooks for Configuration Management",
+            "Terraform Modules for Reusable Infrastructure",
+            "GitOps Workflow Implementation"
+        ];
+
+        function renderSyllabus() {
+            const syllabusContainer = document.getElementById('syllabus');
+            syllabus.forEach((week, index) => {
+                const weekCard = document.createElement('div');
+                weekCard.className = 'card week-card';
+                weekCard.innerHTML = `
+                    <div class="card-header">
+                        <h2>Week ${week.week}: ${week.title}</h2>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Topics:</h5>
+                        <ul class="list-group">
+                            ${week.topics.map((topic, topicIndex) => `
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="week${week.week}topic${topicIndex}">
+                                        <label class="form-check-label" for="week${week.week}topic${topicIndex}">
+                                            ${topic}
+                                        </label>
+                                    </div>
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <h5 class="card-title mt-3">Advanced Topics:</h5>
+                        <ul class="list-group">
+                            ${week.advancedTopics.map((topic, topicIndex) => `
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="week${week.week}advanced${topicIndex}">
+                                        <label class="form-check-label" for="week${week.week}advanced${topicIndex}">
+                                            ${topic}
+                                        </label>
+                                    </div>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                syllabusContainer.appendChild(weekCard);
+            });
+        }
+
+        function renderInterviewTopics() {
+            const interviewTopicsContainer = document.getElementById('interview-topics');
+            interviewTopics.forEach((topic, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.innerHTML = `
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="interviewTopic${index}">
+                        <label class="form-check-label" for="interviewTopic${index}">
+                            ${topic}
+                        </label>
+                    </div>
+                `;
+                interviewTopicsContainer.appendChild(listItem);
+            });
+        }
+
+        function renderProjects() {
+            const projectsContainer = document.getElementById('projects');
+            projects.forEach((project, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.innerHTML = `
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="project${index}">
+                        <label class="form-check-label" for="project${index}">
+                            ${project}
+                        </label>
+                    </div>
+                `;
+                projectsContainer.appendChild(listItem);
+            });
+        }
+
+        function updateProgress() {
+            const totalCheckboxes = document.querySelectorAll('input[type="checkbox"]').length;
+            const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progressPercentage = (checkedCheckboxes / totalCheckboxes) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.style.width = `${progressPercentage}%`;
+            progressBar.setAttribute('aria-valuenow', progressPercentage);
+            progressBar.textContent = `${progressPercentage.toFixed(1)}%`;
+        }
+
+        function saveProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const progress = {};
+            checkboxes.forEach(checkbox => {
+                progress[checkbox.id] = checkbox.checked;
+            });
+            localStorage.setItem('devopsSyllabusProgress', JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const savedProgress = JSON.parse(localStorage.getItem('devopsSyllabusProgress'));
+            if (savedProgress) {
+                Object.keys(savedProgress).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = savedProgress[id];
+                        if (savedProgress[id]) {
+                            checkbox.parentElement.classList.add('completed');
+                        }
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSyllabus();
+            renderInterviewTopics();
+            renderProjects();
+            loadProgress();
+            updateProgress();
+
+            document.addEventListener('change', (e) => {
+                if (e.target.type === 'checkbox') {
+                    e.target.parentElement.classList.toggle('completed', e.target.checked);
+                    updateProgress();
+                    saveProgress();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
